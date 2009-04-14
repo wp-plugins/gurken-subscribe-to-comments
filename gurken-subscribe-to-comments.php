@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Gurken Subscribe to Comments
-Version: 2.0
+Version: 1.0
 Plugin URI: http://www.infogurke.de/2008/10/subscribe-to-comments-und-die-einzige-wirkliche-alternative/
 Description: Based on subscribe to comments 2.1.2 from http://txfx.net/code/wordpress/subscribe-to-comments/
 Author: Martin Spuetz
