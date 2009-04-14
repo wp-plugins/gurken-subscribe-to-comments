@@ -720,23 +720,48 @@ class sg_subscribe {
 
         $settings = get_option('sg_subscribe_settings');
 
-        if ( !$settings ) { // work around WP 2.2/2.2.1 bug
+        if (!$settings) { // work around WP 2.2/2.2.1 bug
             wp_redirect('http://' . $_SERVER['HTTP_HOST'] . add_query_arg('stcwpbug', '1'));
             exit;
         }
 
-        if ( !$settings['salt'] ) {
+        if (!$settings['salt']) {
             $settings['salt'] = md5(md5(uniqid(rand() . rand() . rand() . rand() . rand(), true))); // random MD5 hash
             $update = true;
         }
 
-        if ( !$settings['clear_both'] ) {
+        if (!$settings['clear_both']) {
             $settings['clear_both'] = 'clear_both';
             $update = true;
         }
 
-        if ( !$settings['version'] ) {
+        if (!$settings['version']) {
             $settings = stripslashes_deep($settings);
+            $update = true;
+        }
+
+        if (!$settings['double_opt_in_subject'] || !$settings['double_opt_in']) {
+            $subject = __('Please confirm your subscribtion', 'subscribe-to-comments');
+            $text    = __('Click on the following link: [link]', 'subscribe-to-comments');
+
+            $file = WP_PLUGIN_DIR . "/gurken-subscribe-to-comments/extras/default_email_text.xml";
+            if (function_exists("simplexml_load_file") && file_exists($file) && is_readable($file)) {
+                $sxe = @simplexml_load_file($file);
+                if ($sxe) {
+                    $locale = strtolower(get_locale());
+
+                    foreach ($sxe->lang as $lang) {
+                        if (strtolower($lang["code"]) == $locale) {
+                            $subject = (string) $lang->subject;
+                            $text    = (string) $lang->text;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            $settings['double_opt_in_subject'] = $subject;
+            $settings['double_opt_in'] = $text;
             $update = true;
         }
 
