@@ -176,7 +176,7 @@ function sg_subscribe_admin_standalone()
 
 function sg_subscribe_admin($standalone = false)
 {
-    global $wpdb, $sg_subscribe;
+    global $wpdb, $sg_subscribe, $wp_version;
 
     sg_subscribe_start();
 
@@ -185,7 +185,13 @@ function sg_subscribe_admin($standalone = false)
         $sg_subscribe->standalone = true;
         ob_start(create_function('$a', 'return str_replace("<title>", "<title> " . __("Subscription Manager", "subscribe-to-comments") . " &raquo; ", $a);'));
     } else {
-        $sg_subscribe->form_action = 'edit.php?page=stc-management';
+
+        if (version_compare($wp_version, '2.7.0') === 1) {
+            $sg_subscribe->form_action = 'tools.php?page=stc-management';
+        } else {
+            $sg_subscribe->form_action = 'edit.php?page=stc-management';
+        }
+
         $sg_subscribe->standalone = false;
     }
 
