@@ -2,7 +2,7 @@
 /*
 Plugin Name: Gurken Subscribe to Comments
 Version: trunk
-Plugin URI: http://www.infogurke.de/2008/10/subscribe-to-comments-und-die-einzige-wirkliche-alternative/
+Plugin URI: http://www.infogurke.de/gurken-subscribe-to-comments/
 Description: Subscribe to Comments with Double-Opt-In
 Author: Martin Spuetz
 Author URI: http://www.infogurke.de
