@@ -10,10 +10,10 @@ Subscribe to Comments with Double-Opt-In
 
 == Description ==
 
-Based on "Subscribe to Comments" from Mark Jaquith.
-
-Gurken Subscribe To Comments enables you to sign up for email notification of
-subsqeuent entries, with Double-Opt-In.
+Gurken StC is an extension of the version from Mark Jaquith (txfx.net). It
+supports closed-loop authentication which means that you first have to confirm
+your mail address, before you’re able to receive notifications about
+subsequent comments. 
 
 Features:
 - All of the original Subscribe to Comments
