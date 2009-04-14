@@ -412,7 +412,7 @@ class sg_subscribe {
                   FROM " . $wpdb->comments . "
                  WHERE DATE_SUB(CURDATE(), INTERVAL 3 MONTH) <= comment_date_gmt
                        AND LCASE(comment_author_email) = '" . $email_sql . "'
-                       AND comment_subscribe != 'Y'";
+                       AND comment_subscribe = 'C'";
 
         $result = $wpdb->get_var($sql);
         if ($result >= 1) {
