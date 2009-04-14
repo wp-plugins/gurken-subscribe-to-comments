@@ -1,4 +1,4 @@
-=== Subscribe to Comments ===
+=== Gurken Subscribe to Comments ===
 Tags: comments, subscription, email
 Contributors: infogurke
 Donate link: http://www.infogurke.de
