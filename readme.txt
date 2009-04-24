@@ -3,7 +3,7 @@ Tags: comments, subscription, email
 Contributors: infogurke
 Donate link: http://www.infogurke.de
 Requires at least: 2.0.6
-Tested up to: 2.7
+Tested up to: 2.7.1
 Stable tag: 1.1
 
 Subscribe to Comments with Double-Opt-In
@@ -13,7 +13,7 @@ Subscribe to Comments with Double-Opt-In
 Gurken StC is an extension of the version from Mark Jaquith (txfx.net). It
 supports closed-loop authentication which means that you first have to confirm
 your mail address, before you’re able to receive notifications about
-subsequent comments. 
+subsequent comments.
 
 Features:
 * All of the original Subscribe to Comments

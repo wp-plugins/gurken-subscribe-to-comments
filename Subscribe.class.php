@@ -187,8 +187,13 @@ class sg_subscribe {
         if ( strtolower($post_author->user_email) == ($email) )
             $this->add_error(__('You appear to be already subscribed to this entry.', 'subscribe-to-comments'),'solo_subscribe');
 
-        if ( !is_array($this->errors['solo_subscribe']) ) {
 
+        if (is_array($this->errors['solo_subscribe'])) {
+            return;
+        }
+
+        if ($this->settings['double_opt_in_enable']) {
+            // send double opt-in
             $c = get_post_meta($postid, "_sg_subscribe-to-comments_c", false);
             if (!is_array($c)) {
                 $c = array($c);
@@ -216,11 +221,14 @@ class sg_subscribe {
             // send confirmation email
             $this->send_double_opt_in($email, $postid, true, array("extra_key" => $key));
 
-            setcookie('comment_author_email_' . COOKIEHASH, $email, time() + 30000000, COOKIEPATH);
-            $location = $this->manage_link($email, false, false) . '&subscribeid=' . $postid;
-            header("Location: $location");
-            exit();
+        } else {
+            add_post_meta($postid, '_sg_subscribe-to-comments', $email);
         }
+
+        setcookie('comment_author_email_' . COOKIEHASH, $email, time() + 30000000, COOKIEPATH);
+        $location = $this->manage_link($email, false, false) . '&subscribeid=' . $postid;
+        header("Location: $location");
+        exit();
     }
 
     function add_subscriber($cid) {
@@ -246,6 +254,11 @@ class sg_subscribe {
 
             $sendOptIn = true;
             if ($previously_subscribed) {
+                $sendOptIn = false;
+            }
+
+            // don't send opt-in email if feature is disabled
+            if (!$this->settings['double_opt_in_enable']) {
                 $sendOptIn = false;
             }
 
@@ -737,6 +750,11 @@ class sg_subscribe {
 
         if (!$settings['version']) {
             $settings = stripslashes_deep($settings);
+            $update = true;
+        }
+
+        if (!isset($settings["double_opt_in_enable"])) {
+            $settings["double_opt_in_enable"] = 1;
             $update = true;
         }
 

@@ -16,6 +16,12 @@ class sg_subscribe_settings {
         if ( isset($_POST['sg_subscribe_settings_submit']) ) {
             check_admin_referer('subscribe-to-comments-update_options');
             $update_settings = stripslashes_deep($_POST['sg_subscribe_settings']);
+
+            // checkbox fix
+            if (!isset($update_settings["double_opt_in_enable"])) {
+                $update_settings["double_opt_in_enable"] = 0;
+            }
+
             $sg_subscribe->update_settings($update_settings);
         }
 
@@ -42,9 +48,20 @@ class sg_subscribe_settings {
 
         echo '</ul></fieldset>';
 
-        echo '<fieldset><legend>' . __('E-Mail Text', 'subscribe-to-comments') . '</legend>';
+        echo '<fieldset>';
 
         echo '<ul>';
+
+        // enable double opt-in checkbox
+        echo '<li><label for="double_opt_in_enable">'
+           . __('Enable Double Opt-In:', 'subscribe-to-comments')
+           . ' <input type="checkbox" id="double_opt_in_enable" name="sg_subscribe_settings[double_opt_in_enable]" value="1" ';
+
+        if (sg_subscribe_settings::form_setting('double_opt_in_enable')) {
+            echo 'checked="checked" ';
+        }
+
+        echo '" /></label></li>';
 
         echo '<li><label for="double_opt_in_subject">' . __('Double Opt-In Subject:', 'subscribe-to-comments') . ' <input type="text" size="40" id="name" name="sg_subscribe_settings[double_opt_in_subject]" value="' . sg_subscribe_settings::form_setting('double_opt_in_subject') . '" /></label></li>';
 
