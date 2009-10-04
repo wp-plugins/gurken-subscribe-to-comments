@@ -357,7 +357,16 @@ if (isset($sg_subscribe->email) && !is_array($postlist) && $sg_subscribe->email 
 
     if (is_email($sg_subscribe->email)) {
 
-        $sg_subscribe->add_error(sprintf(__('<strong>%s</strong> is not subscribed to any posts on this site.', 'subscribe-to-comments'), $sg_subscribe->email));
+        if ($sg_subscribe->is_subscribed_not_approved($sg_subscribe->email)) {
+            $sg_subscribe->add_error(
+                sprintf(
+                    __('<strong>%s</strong> is subscribed but the comment has not been approved yet.', 'subscribe-to-comments'),
+                    $sg_subscribe->email
+                )
+            );
+        } else {
+            $sg_subscribe->add_error(sprintf(__('<strong>%s</strong> is not subscribed to any posts on this site.', 'subscribe-to-comments'), $sg_subscribe->email));
+        }
 
         if ($sg_subscribe->is_subscribed_not_confirmed()) {
             $sg_subscribe->add_error(__("You have a pending subscription, please check your emails and click on the confirmation link.", 'subscribe-to-comments'));

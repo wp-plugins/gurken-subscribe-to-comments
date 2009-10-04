@@ -170,7 +170,7 @@ class sg_subscribe {
                 // already subscribed
                 setcookie('comment_author_email_' . COOKIEHASH, $email, time() + 30000000, COOKIEPATH);
                 $this->add_error(__('You appear to be already subscribed to this entry.', 'subscribe-to-comments'),'solo_subscribe');
-                }
+            }
         $email = $wpdb->escape($email);
         $post = $wpdb->get_row("SELECT * FROM $wpdb->posts WHERE ID = '$postid' AND comment_status <> 'closed' AND ( post_status = 'static' OR post_status = 'publish')  LIMIT 1");
 
@@ -426,6 +426,31 @@ class sg_subscribe {
                  WHERE DATE_SUB(CURDATE(), INTERVAL 3 MONTH) <= comment_date_gmt
                        AND LCASE(comment_author_email) = '" . $email_sql . "'
                        AND comment_subscribe = 'C'";
+
+        $result = $wpdb->get_var($sql);
+        if ($result >= 1) {
+            return true;
+        }
+
+        return false;
+    }
+
+    function is_subscribed_not_approved($email = '')
+    {
+        global $wpdb;
+
+        if (!is_email($email)) {
+            $email = $this->email;
+        }
+
+        $email_sql = $wpdb->escape($email);
+
+        $sql = "SELECT COUNT(*)
+                  FROM " . $wpdb->comments . "
+                 WHERE DATE_SUB(CURDATE(), INTERVAL 3 MONTH) <= comment_date_gmt
+                   AND LCASE(comment_author_email) = '" . $email_sql . "'
+                   AND comment_subscribe = 'Y'
+                   AND comment_approved = '0'";
 
         $result = $wpdb->get_var($sql);
         if ($result >= 1) {
