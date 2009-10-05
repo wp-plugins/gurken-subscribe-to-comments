@@ -16,10 +16,11 @@ your mail address, before you’re able to receive notifications about
 subsequent comments.
 
 Features:
-* All of the original Subscribe to Comments
-* Registration with Double-Opt-In
-* Multi-Language (English or German)
-* heavily tested ;-)
+
+*   All of the original Subscribe to Comments
+*   Registration with Double-Opt-In
+*   Multi-Language (English or German)
+*   heavily tested ;-)
 
 == Installation ==
 
