@@ -3,8 +3,8 @@ Tags: comments, subscription, email
 Contributors: infogurke
 Donate link: http://www.infogurke.de
 Requires at least: 2.0.6
-Tested up to: 2.7.1
-Stable tag: 1.2
+Tested up to: 2.8.4
+Stable tag: 1.3
 
 Subscribe to Comments with Double-Opt-In
 
@@ -16,10 +16,11 @@ your mail address, before you’re able to receive notifications about
 subsequent comments.
 
 Features:
-* All of the original Subscribe to Comments
-* Registration with Double-Opt-In
-* Multi-Language (English or German)
-* heavily tested ;-)
+
+*   All of the original Subscribe to Comments
+*   Registration with Double-Opt-In
+*   Multi-Language (English or German)
+*   heavily tested ;-)
 
 == Installation ==
 
