@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Gurken Subscribe to Comments
-Version: trunk
+Version: 1.1
 Plugin URI: http://www.infogurke.de/gurken-subscribe-to-comments/
 Description: Subscribe to Comments with Double-Opt-In
 Author: Martin Spuetz
@@ -139,6 +139,12 @@ function sg_subscribe_start() {
         load_plugin_textdomain('subscribe-to-comments', $path);
         $sg_subscribe = new sg_subscribe();
     }
+}
+
+register_activation_hook(__FILE__, array("sg_subscribe", "install"));
+
+if (function_exists("register_uninstall_hook")) {
+    register_uninstall_hook(__FILE__, array("sg_subscribe", "uninstall"));
 }
 
 // This will be overridden if the user manually places the function

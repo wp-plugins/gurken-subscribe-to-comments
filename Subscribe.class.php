@@ -816,6 +816,11 @@ class sg_subscribe {
 
         if ( $update )
             $this->update_settings($settings);
+    }
+
+    function install()
+    {
+        global $wpdb;
 
         $result = $wpdb->get_row("DESC " . $wpdb->comments . " comment_subscribe");
 
@@ -826,6 +831,14 @@ class sg_subscribe {
         }
     }
 
+    function uninstall()
+    {
+        global $wpdb;
+
+        delete_option("sg_subscribe_settings");
+
+        $wpdb->query("ALTER TABLE " . $wpdb->comments . " DROP `comment_subscribe`");
+    }
 
     function update_settings($settings) {
         $settings['version'] = $this->version;
