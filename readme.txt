@@ -4,7 +4,7 @@ Contributors: infogurke
 Donate link: http://www.infogurke.de
 Requires at least: 2.0.6
 Tested up to: 2.8.4
-Stable tag: 1.4
+Stable tag: trunk
 
 Subscribe to Comments with Double-Opt-In
 
