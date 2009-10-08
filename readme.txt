@@ -1,5 +1,6 @@
 === Gurken Subscribe to Comments ===
-Tags: comments, subscription, email
+Tags: comments, subscription, email, opt-in, abmahnung, kommentar, kommentar
+benachrichtigung, benachrichtigung, double opt-in
 Contributors: infogurke
 Donate link: http://www.infogurke.de
 Requires at least: 2.0.6
