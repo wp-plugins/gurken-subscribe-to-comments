@@ -33,7 +33,6 @@ class sg_subscribe {
     var $key;
     var $key_type;
     var $action;
-    var $default_subscribed;
     var $not_subscribed_text;
     var $subscribed_text;
     var $author_text;
@@ -50,7 +49,6 @@ class sg_subscribe {
         $this->salt = $this->settings['salt'];
         $this->site_email = ( is_email($this->settings['email']) && $this->settings['email'] != 'email@example.com' ) ? $this->settings['email'] : get_bloginfo('admin_email');
         $this->site_name = ( $this->settings['name'] != 'YOUR NAME' && !empty($this->settings['name']) ) ? $this->settings['name'] : get_bloginfo('name');
-        $this->default_subscribed = ($this->settings['default_subscribed']) ? true : false;
 
         $this->not_subscribed_text = $this->settings['not_subscribed_text'];
         $this->subscribed_text = $this->settings['subscribed_text'];
@@ -759,6 +757,8 @@ class sg_subscribe {
             wp_redirect('http://' . $_SERVER['HTTP_HOST'] . add_query_arg('stcwpbug', '1'));
             exit;
         }
+
+        $update = false;
 
         if (!$settings['salt']) {
             $settings['salt'] = md5(md5(uniqid(rand() . rand() . rand() . rand() . rand(), true))); // random MD5 hash
