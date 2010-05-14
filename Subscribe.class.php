@@ -719,18 +719,14 @@ class sg_subscribe {
         return $output;
     }
 
-
-    function sg_wp_head() { ?>
-        <style type="text/css" media="screen">
-        .updated-error {
-            background-color: #FF8080;
-            border: 1px solid #F00;
+    function sg_wp_head()
+    {
+        if (isset($this->settings["manager_css_url"]) && $this->settings["manager_css_url"] != "") {
+            print '<link rel="stylesheet" type="text/css" href="' . $this->settings["manager_css_url"] . '" />';
         }
-        </style>
-        <?php
+
         return true;
     }
-
 
     function db_upgrade_check () {
         global $wpdb;
@@ -750,6 +746,7 @@ class sg_subscribe {
                 'not_subscribed_text' => __('Notify me of followup comments via e-mail', 'subscribe-to-comments'),
                 'subscribed_text' => __('You are subscribed to this entry.  <a href="[manager_link]">Manage your subscriptions</a>.', 'subscribe-to-comments'),
                 'author_text' => __('You are the author of this entry.  <a href="[manager_link]">Manage subscriptions</a>.', 'subscribe-to-comments'),
+                'manager_css_url' => '',
                 'double_opt_in_subject' => __('Please confirm your subscribtion', 'subscribe-to-comments'),
                 'double_opt_in' => __('Click on the following link: [link]', 'subscribe-to-comments'),
                 'version' => $this->version

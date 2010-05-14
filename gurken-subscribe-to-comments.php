@@ -286,14 +286,25 @@ function sg_subscribe_admin($standalone = false)
     <head>
     <title><?php printf(__('%s Comment Subscription Manager', 'subscribe-to-comments'), bloginfo('name')); ?></title>
 
-        <style type="text/css" media="screen">
-            @import url( <?php echo get_settings('siteurl'); ?>/wp-admin/wp-admin.css );
-        </style>
+    <style type="text/css" media="screen">
+        body {
+            width: 800px;
+            font-family: Verdana,Arial,"Bitstream Vera Sans",sans-serif;
+            font-size: 11px;
+            background-color: #fff;
+            color: #000;
+        }
+        .updated-error {
+            background-color: #FF8080;
+            border: 1px solid #F00;
+            padding-left: 5px;
+        }
+        fieldset legend {
+            font-weight: bold;
+        }
+    </style>
 
-        <link rel="stylesheet" type="text/css" media="print" href="<?php echo get_settings('siteurl'); ?>/print.css" />
-
-        <meta http-equiv="Content-Type" content="text/html;
-    charset=<?php bloginfo('charset'); ?>" />
+    <meta http-equiv="Content-Type" content="text/html; charset=<?php bloginfo('charset'); ?>" />
 
     <?php $sg_subscribe->sg_wp_head(); ?>
 

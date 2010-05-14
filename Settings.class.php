@@ -32,6 +32,7 @@ class sg_subscribe_settings {
         echo '<li><label for="name">' . __('"From" name for notifications:', 'subscribe-to-comments') . ' <input type="text" size="40" id="name" name="sg_subscribe_settings[name]" value="' . sg_subscribe_settings::form_setting('name') . '" /></label></li>';
         echo '<li><label for="email">' . __('"From" e-mail addresss for notifications:', 'subscribe-to-comments') . ' <input type="text" size="40" id="email" name="sg_subscribe_settings[email]" value="' . sg_subscribe_settings::form_setting('email') . '" /></label></li>';
         echo '<li><label for="clear_both"><input type="checkbox" id="clear_both" name="sg_subscribe_settings[clear_both]" value="clear_both"' . sg_subscribe_settings::checkflag('clear_both') . ' /> ' . __('Do a CSS "clear" on the subscription checkbox/message (uncheck this if the checkbox/message appears in a strange location in your theme)', 'subscribe-to-comments') . '</label></li>';
+        echo '<li><label for="manager_css_url">' . __('Custom CSS url:', 'subscribe-to-comments') . ' <input type="text" size="40" id="name" name="sg_subscribe_settings[manager_css_url]" value="' . sg_subscribe_settings::form_setting('manager_css_url') . '" /> (optional)</label></li>';
         echo '</ul>';
 
         echo '<fieldset><legend>' . __('Comment Form Text', 'subscribe-to-comments') . '</legend>';
@@ -68,7 +69,6 @@ class sg_subscribe_settings {
         echo '<li><label for="double_opt_in">' . __('Double Opt-In', 'subscribe-to-comments') . '</label><br /><textarea style="width: 98%; font-size: 12px;" rows="10" cols="60" id="double_opt_in" name="sg_subscribe_settings[double_opt_in]">' . sg_subscribe_settings::textarea_setting('double_opt_in') . '</textarea></li>';
 
         echo '</ul></fieldset>';
-
 
         echo '<fieldset>';
         echo '<legend><input type="checkbox" id="use_custom_style" name="sg_subscribe_settings[use_custom_style]" value="use_custom_style"' . sg_subscribe_settings::checkflag('use_custom_style') . ' /> <label for="use_custom_style">' . __('Use custom style for Subscription Manager', 'subscribe-to-comments') . '</label></legend>';
