@@ -588,9 +588,9 @@ class sg_subscribe {
             $this->action = 'solo_subscribe';
         elseif ( $is_email && isset($_GET['blockemailconfirm']) && $this->key == $this->generate_key($this->email . 'blockrequest') )
             $this->action = 'block';
-        elseif ( $this->key_type == "opt_in" && $_REQUEST["opt-in"] == "1")
+        elseif (($this->key_type == "opt_in" || $this->key_type == "admin") && isset($_REQUEST["opt-in"]) && $_REQUEST["opt-in"] == "1")
             $this->action = 'opt_in';
-        elseif ( $this->key_type == "opt_in" && $_REQUEST["opt-in"] == "2")
+        elseif (($this->key_type == "opt_in" || $this->key_type == "admin") && isset($_REQUEST["opt-in"]) && $_REQUEST["opt-in"] == "2")
             $this->action = 'solo_opt_in';
         else
             $this->action = 'none';
