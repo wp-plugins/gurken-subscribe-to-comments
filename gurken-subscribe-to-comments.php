@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Gurken Subscribe to Comments
-Version: 1.4
+Version: 1.6
 Plugin URI: http://www.infogurke.de/gurken-subscribe-to-comments/
 Description: Subscribe to Comments with Double-Opt-In
 Author: Martin Spuetz
