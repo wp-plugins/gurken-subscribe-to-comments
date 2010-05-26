@@ -4,7 +4,7 @@ benachrichtigung, benachrichtigung, double opt-in
 Contributors: infogurke
 Donate link: http://www.infogurke.de
 Requires at least: 2.5
-Tested up to: 3.0
+Tested up to: 2.9.2
 Stable tag: 1.5
 
 Subscribe to Comments with Double-Opt-In
