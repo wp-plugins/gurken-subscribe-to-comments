@@ -5,7 +5,7 @@ Contributors: infogurke
 Donate link: http://www.infogurke.de
 Requires at least: 2.5
 Tested up to: 2.8.4
-Stable tag: 1.6
+Stable tag: 1.4
 
 Subscribe to Comments with Double-Opt-In
 
