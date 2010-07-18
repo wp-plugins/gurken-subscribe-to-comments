@@ -163,12 +163,19 @@ add_action('edit_comment', array('sg_subscribe', 'on_edit'));
 add_filter('preprocess_comment', 'stc_checkbox_state', 1);
 
 
-// detect "subscribe without commenting" attempts
-add_action('init', create_function('$a','global $sg_subscribe; if ( $_POST[\'solo-comment-subscribe\'] == \'solo-comment-subscribe\' && is_numeric($_POST[\'postid\']) ) {
-    sg_subscribe_start();
-    $sg_subscribe->solo_subscribe(stripslashes($_POST[\'email\']), (int) $_POST[\'postid\']);
-}')
-);
+function sg_subscribe_hook_init()
+{
+    global $sg_subscribe;
+
+    //  detect "subscribe without commenting" attempts
+    if (isset($_POST["solo-comment-subscribe"], $_POST["postid"], $_POST["email"])) {
+        if ($_POST["solo-comment-subscribe"] == "solo-comment-subscribe" && is_numeric($_POST["postid"])) {
+            sg_subscribe_start();
+            $sg_subscribe->solo_subscribe(stripslashes($_POST["email"]), (int) $_POST["postid"]);
+        }
+    }
+}
+add_action("init", "sg_subscribe_hook_init");
 
 if (isset($_REQUEST['wp-subscription-manager'])) {
     add_action('template_redirect', 'sg_subscribe_admin_standalone');
