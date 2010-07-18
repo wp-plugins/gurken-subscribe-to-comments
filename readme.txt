@@ -17,12 +17,18 @@ your mail address, before you’re able to receive notifications about
 subsequent comments.
 
 Features:
-
 *   All of the original Subscribe to Comments
 *   Registration with Double-Opt-In
 *   Multi-Language (English and German included)
 *   You can define an own css file for the manager interface
 *   Fixed many bugs that are still in the original plugin
+
+== Changelog ==
+
+= 1.7 =
+* This is only bug fix release, you don't have to update if you don't have any issues.
+* Fixed html syntax error (reported by Dieter Welzel, http://www.dieter-welzel.de/blog/)
+* Fixed a E_NOTICE message (reported by Joe Hoyle, http://wordpress.org/support/topic/368772)
 
 == Installation ==
 
