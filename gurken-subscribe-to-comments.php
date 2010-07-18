@@ -81,11 +81,10 @@ function show_manual_subscription_form()
 <?php /* ------------------------------------------------------------------- */ ?>
 
     <form action="" method="post">
+    <p class="solo-subscribe-to-comments">
     <input type="hidden" name="solo-comment-subscribe" value="solo-comment-subscribe" />
     <input type="hidden" name="postid" value="<?php echo (int) $id; ?>" />
     <input type="hidden" name="ref" value="<?php echo urlencode('http://' . $_SERVER['HTTP_HOST'] . attribute_escape($_SERVER['REQUEST_URI'])); ?>" />
-
-    <p class="solo-subscribe-to-comments">
     <?php _e('Subscribe without commenting', 'subscribe-to-comments'); ?>
     <br />
     <label for="solo-subscribe-email"><?php _e('E-Mail:', 'subscribe-to-comments'); ?>
