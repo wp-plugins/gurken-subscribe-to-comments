@@ -27,12 +27,9 @@ Features:
 == Changelog ==
 
 = 1.7 =
-* This is only bug fix release, you don't have to update if you don't have any
-* issues.
-* Fixed html syntax error (reported by Dieter Welzel,
-* http://www.dieter-welzel.de/blog/)
-* Fixed a E_NOTICE message (reported by Joe Hoyle,
-* http://wordpress.org/support/topic/368772)
+* This is only a bug fix release, you don't have to update if you don't have any issues.
+* Fixed html syntax error (reported by Dieter Welzel, http://www.dieter-welzel.de/blog/)
+* Fixed a E_NOTICE message (reported by Joe Hoyle, http://wordpress.org/support/topic/368772)
 
 == Installation ==
 
