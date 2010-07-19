@@ -4,7 +4,7 @@ benachrichtigung, benachrichtigung, double opt-in
 Contributors: infogurke
 Donate link: http://www.infogurke.de
 Requires at least: 2.5
-Tested up to: 2.9.2
+Tested up to: 3.0
 Stable tag: 1.7
 
 Subscribe to Comments with Double-Opt-In
@@ -23,6 +23,16 @@ Features:
 *   Multi-Language (English and German included)
 *   You can define an own css file for the manager interface
 *   Fixed many bugs that are still in the original plugin
+
+== Changelog ==
+
+= 1.7 =
+* This is only bug fix release, you don't have to update if you don't have any
+* issues.
+* Fixed html syntax error (reported by Dieter Welzel,
+* http://www.dieter-welzel.de/blog/)
+* Fixed a E_NOTICE message (reported by Joe Hoyle,
+* http://wordpress.org/support/topic/368772)
 
 == Installation ==
 
