@@ -5,7 +5,7 @@ Contributors: infogurke
 Donate link: http://www.infogurke.de
 Requires at least: 2.5
 Tested up to: 3.0
-Stable tag: 1.7
+Stable tag: 1.8
 
 Subscribe to Comments with Double-Opt-In
 
@@ -19,11 +19,16 @@ subsequent comments.
 Features:
 *   All of the original Subscribe to Comments
 *   Registration with Double-Opt-In
-*   Multi-Language (English and German included)
+*   Multi-Language (English, German and Czech included)
 *   You can define an own css file for the manager interface
 *   Fixed many bugs that are still in the original plugin
 
 == Changelog ==
+
+= 1.8 =
+* Added Czech translation (from Klimas, http://www.tourdebier.cz/francek)
+* Changed the recipient of the confirmation email when you change an email
+  address to the new address instead of the old address.
 
 = 1.7 =
 * This is only a bug fix release, you don't have to update if you don't have any issues.
