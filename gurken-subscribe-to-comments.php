@@ -18,7 +18,7 @@ function show_subscription_checkbox ($id = '0')
         return $id;
     }
 
-    if (!$email = $sg_subscribe->current_viewer_subscription_status()) :
+    if (!($email = $sg_subscribe->current_viewer_subscription_status())) :
         $checked_status = ( !empty($_COOKIE['subscribe_checkbox_'.COOKIEHASH]) && 'checked' == $_COOKIE['subscribe_checkbox_'.COOKIEHASH] ) ? true : false;
     ?>
 
@@ -248,7 +248,7 @@ function sg_subscribe_admin($standalone = false)
                 $sg_subscribe->add_error(sprintf(__('<strong>%s</strong> has been blocked from receiving notifications.  You will have to have the administrator remove the block before you will be able to change your notification address.', 'subscribe-to-comments'), $sg_subscribe->email));
             else
                 if ($sg_subscribe->change_email_request($sg_subscribe->email, $sg_subscribe->new_email))
-                    $sg_subscribe->add_message(sprintf(__('Your change of e-mail request was successfully received.  Please check your old account (<strong>%s</strong>) in order to confirm the change.', 'subscribe-to-comments'), $sg_subscribe->email));
+                    $sg_subscribe->add_message(sprintf(__('Your change of e-mail request was successfully received.  Please check your new account (<strong>%s</strong>) in order to confirm the change.', 'subscribe-to-comments'), $sg_subscribe->new_email));
             break;
 
         case "block_request" :
@@ -577,7 +577,7 @@ function checkAll(form) {
     <?php $sg_subscribe->hidden_form_fields(); ?>
 
                 <p>
-                <?php printf(__('If you would like to change the e-mail address for your subscriptions, enter the new address below.  You will be required to verify this request by clicking a special link sent to your current address (<strong>%s</strong>).', 'subscribe-to-comments'), $sg_subscribe->email); ?>
+                <?php printf(__('If you would like to change the e-mail address for your subscriptions, enter the new address below.  You will be required to verify this request by clicking a special link sent to your new address.', 'subscribe-to-comments'), $sg_subscribe->email); ?>
                 </p>
 
                 <p>

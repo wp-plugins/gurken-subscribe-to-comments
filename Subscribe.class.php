@@ -660,10 +660,10 @@ class sg_subscribe {
 
         $subject = __('E-mail change confirmation', 'subscribe-to-comments');
         $message = sprintf(__("You are receiving this message to confirm a change of e-mail address for your subscriptions at \"%s\"\n\n", 'subscribe-to-comments'), get_bloginfo('blogname'));
-        $message .= sprintf(__("To change your e-mail address to %s, click this link:\n\n", 'subscribe-to-comments'), $this->new_email);
+        $message .= sprintf(__("To change your e-mail address from %s to %s, click this link:\n\n", 'subscribe-to-comments'), $this->email, $this->new_email);
         $message .= get_option('home') . "/?wp-subscription-manager=1&email=" . urlencode($this->email) . "&new_email=" . urlencode($this->new_email) . "&key=" . $this->generate_key($this->email . $this->new_email) . ".\n\n";
         $message .= __('If you did not request this action, please disregard this message.', 'subscribe-to-comments');
-        return $this->send_mail($this->email, $subject, $message);
+        return $this->send_mail($this->new_email, $subject, $message);
     }
 
 
