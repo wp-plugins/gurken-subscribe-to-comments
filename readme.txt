@@ -3,9 +3,9 @@ Tags: comments, subscription, email, opt-in, abmahnung, kommentar, kommentar
 benachrichtigung, benachrichtigung, double opt-in
 Contributors: infogurke
 Donate link: http://www.infogurke.de
+Stable tag: 1.8
 Requires at least: 2.5
 Tested up to: 3.0
-Stable tag: 1.8
 
 Subscribe to Comments with Double-Opt-In
 
